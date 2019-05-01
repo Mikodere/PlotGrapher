@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>aeb8d36d-5cc9-42a6-a3a3-bb48756277e8</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>shockTube.py</StartupFile>
+    <StartupFile>graphPlotting.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

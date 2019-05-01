@@ -8,16 +8,40 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
-data = np.loadtxt('densities.txt', delimiter=',')
+den = np.loadtxt('densities.txt', delimiter=',')
+pre = np.loadtxt('pressures.txt', delimiter=',')
+vel = np.loadtxt('velocities.txt', delimiter=',')
+pos = np.loadtxt('positions.txt', delimiter=',')
+
 fig = plt.figure()
-ax1 = fig.add_subplot(1,1,1)
 
 def animate(i):
-    x = data[i, ::2]
-    y = data[i,1::2]
-    ax1.clear()
-    ax1.plot(x, y, 'o', mfc='none', ms=2)
+    x4 = pos[i, ::2]
+    y4 = pos[i,1::2]
 
-ani = animation.FuncAnimation(fig, animate, frames=100, interval=50)
+    x1 = den[i, ::2]
+    y1 = den[i,1::2]
+    plt.subplot(2,2,1)
+    plt.subplot(2,2,1).clear()
+    plt.plot(y4, y1, 'o', mfc='none', ms=2)
+
+    x2 = pre[i, ::2]
+    y2 = pre[i,1::2]
+    plt.subplot(2,2,2)
+    plt.subplot(2,2,2).clear()
+    plt.plot(y4, y2, 'o', mfc='none', ms=2)
+
+    x3 = vel[i, ::2]
+    y3 = vel[i,1::2]
+    plt.subplot(2,2,3)
+    plt.subplot(2,2,3).clear()
+    plt.plot(y4, y3, 'o', mfc='none', ms=2)
+
+    plt.subplot(2,2,4)
+    plt.subplot(2,2,4).clear()
+    plt.plot(x4, y4, 'o', mfc='none', ms=2)
+    
+
+ani = animation.FuncAnimation(fig, animate, frames=len(den), interval=50)
 
 plt.show()
